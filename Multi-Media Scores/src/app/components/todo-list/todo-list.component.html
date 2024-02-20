@@ -1,0 +1,42 @@
+<div class="p-4">
+    <button type="button" class="btn btn-warning w-100 mt-1 mb-4" routerLink="/explore">
+      <ng-icon name="ionAddOutline"></ng-icon>
+      Add a Todo
+    </button>
+  </div>
+
+  @for(todo of todos; track todo.id){
+    <div class="card mb-2">
+      <div class="card-body">
+        <div class="row w-100">
+          <div class="col-2">
+            @if(todo.categoryId == 1){
+              <ng-icon name="ionVideocamOutline" class="text-warning" style="font-size: 2rem;"></ng-icon>
+            }
+            @if(todo.categoryId == 2){
+              <ng-icon name="ionTvOutline" class="text-warning" style="font-size: 2rem;"></ng-icon>
+            }
+            @if(todo.categoryId == 3){
+              <ng-icon name="ionGameControllerOutline" class="text-warning" style="font-size: 2rem;"></ng-icon>
+            }
+          </div>
+          <div class="col-10 d-flex " style="align-items: center;">
+            <div>
+              <h5 class="card-title fw-bold">{{ todo.title }}</h5>
+              <button type="button" class="btn btn-warning" (click)="removeToDo(todo.id ?? 0)">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+  
+  @empty {
+    <div class="p-4 text-center">
+      <img src="../../../assets/empty_todo.svg" alt="" class="w-75">
+      <h4 class="mt-5">No to dos added yet!</h4>
+    </div>
+
+    
+  }
+  

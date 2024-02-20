@@ -1,0 +1,33 @@
+@for(review of reviews; track review.id){
+  <div class="card mb-2" routerLink="add" [queryParams]="{reviewId:review.id}">
+    <div class="card-body">
+      <div class="row w-100">
+        <div class="col-2">
+          @if(review.categoryId == 1){
+            <ng-icon name="ionVideocamOutline" class="text-warning" style="font-size: 2rem;"></ng-icon>
+          }
+          @if(review.categoryId == 2){
+            <ng-icon name="ionTvOutline" class="text-warning" style="font-size: 2rem;"></ng-icon>
+          }
+          @if(review.categoryId == 3){
+            <ng-icon name="ionGameControllerOutline" class="text-warning" style="font-size: 2rem;"></ng-icon>
+          }
+        </div>
+        <div class="col-9">
+          <h5 class="card-title fw-bold">{{ review.title }}</h5>
+          <p class="card-text">{{ review.rating }}/5 - {{review.comment}}</p>
+        </div>
+        <div class="col-1 d-flex" style="align-items: center;">
+          <ng-icon name="ionChevronForwardOutline" style="font-size: 1.3  rem;"></ng-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+@empty {
+  <div class="p-4 text-center">
+    <img src="../../../assets/empty_review.svg" alt="" class="w-75">
+    <h4 class="mt-5">No Reviews added yet!</h4>
+  </div>
+}

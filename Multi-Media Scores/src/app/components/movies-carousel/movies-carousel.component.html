@@ -1,0 +1,47 @@
+<div class="container-fluid mb-4 mt-4">
+    <h5 >{{ type }} suggestions</h5>
+    <p class="m-0">Swipe left or right to see new {{ type }} to watch</p>
+  </div>
+  
+@if (!isLoading){
+  <div [id]="identifier" class="carousel slide">
+    <div class="carousel-inner">
+      @for(movie of reccomendations;track movie["id"];let index = $index;){
+            <div class="carousel-item {{ checkActive(index) }}">
+              <div class="card">
+                <img [src]="movie['image']" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ movie["title"] }}</h5>
+                    <p class="card-text">{{ movie["overview"] }}</p>
+                  </div>
+                </div>
+            </div>
+      }
+    </div>
+    <button class="carousel-control-prev" type="button" attr.data-bs-target="#{{identifier}}" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" attr.data-bs-target="#{{identifier}}" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+}
+@else {
+  <div class="card" aria-hidden="true">
+    <div class="card-body">
+      <h5 class="card-title placeholder-glow">
+        <span class="placeholder col-6"></span>
+      </h5>
+      <p class="card-text placeholder-glow">
+        <span class="placeholder col-7"></span>
+        <span class="placeholder col-4"></span>
+        <span class="placeholder col-4"></span>
+        <span class="placeholder col-6"></span>
+        <span class="placeholder col-8"></span>
+      </p>
+    </div>
+</div>
+}
+  

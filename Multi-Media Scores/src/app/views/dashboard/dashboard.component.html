@@ -1,0 +1,39 @@
+<div class="container-fluid p-4">
+<p class="m-0">Welcome To MultiMediaScores</p>
+<h1 class="m-0">{{ userName }}</h1>
+
+<p class="mt-4 mb-4">These are your today's suggestions</p>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="movies-tab" data-bs-toggle="tab" data-bs-target="#movies" type="button" role="tab" aria-controls="movies" aria-selected="true">
+        <ng-icon name="ionVideocamOutline" style="font-size: 2rem;"></ng-icon><br>
+        Movies
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="tvShows-tab" data-bs-toggle="tab" data-bs-target="#tvShows" type="button" role="tab" aria-controls="tvShows" aria-selected="false">
+        <ng-icon name="ionTvOutline" style="font-size: 2rem;"></ng-icon><br>
+        Tv Shows
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="videogames-tab" data-bs-toggle="tab" data-bs-target="#videogames" type="button" role="tab" aria-controls="videogames" aria-selected="false">
+        <ng-icon name="ionGameControllerOutline" style="font-size: 2rem;"></ng-icon><br>
+        Videogames
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="movies" role="tabpanel" aria-labelledby="movies-tab">
+        <app-movies-carousel type="Movies"></app-movies-carousel>
+    </div>
+    <div class="tab-pane fade" id="tvShows" role="tabpanel" aria-labelledby="tvShows-tab">
+      <app-movies-carousel type="Tv Shows"></app-movies-carousel>
+    </div>
+    <div class="tab-pane fade" id="videogames" role="tabpanel" aria-labelledby="videogames">
+      <app-movies-carousel type="Games"></app-movies-carousel>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,22 @@
+
+<div class="mt-4 d-flex justify-content-center" routerLink="/profile" routerLinkActive="active">
+    <img src="../../../assets/avataaars.svg" alt="Bootstrap" width="150" height="150">
+</div>
+
+<div class="mt-4 p-3">
+    <form class="p-2 d-flex justify-content-center flex-column " [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <label for="name">Name: </label>
+        <input class="form-control" id="name" type="text" formControlName="name" [value]="this.userName">
+        @if(profileForm.get('name')?.invalid && (profileForm.get('name')?.dirty || profileForm.get('name')?.touched)){
+            <p class="error-message text-danger">Please enter a valid name.</p>
+        }
+    
+        <label class="mt-4" for="email">Email: </label>
+        <input class="form-control" id="email" type="text" formControlName="email" [value]="this.userEmail">
+        @if(profileForm.get('email')?.invalid && (profileForm.get('email')?.dirty || profileForm.get('email')?.touched)){
+            <p class="error-message text-danger">Please enter a valid email.</p>
+        }
+    
+        <button class="mt-5 btn btn-warning" type="submit">Submit</button>
+    </form>
+</div>

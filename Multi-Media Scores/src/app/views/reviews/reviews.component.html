@@ -1,0 +1,14 @@
+<div class="p-4">
+    <label for="">Select your category to show ToDo's</label>
+    <div class="d-flex justify-content-between m-3">
+    <button class="btn btn-outline-warning" (click)="onCategoryChange(0)">All</button>
+    <button class="btn btn-outline-warning" (click)="onCategoryChange(1)">Movies</button>
+    <button class="btn btn-outline-warning" (click)="onCategoryChange(2)">Tv Shows</button>
+    <button class="btn btn-outline-warning" (click)="onCategoryChange(3)">Games</button>
+  </div>
+    <button type="button" class="btn btn-warning w-100 mt-1 mb-4" routerLink="/reviews/add">
+      <ng-icon name="ionAddOutline"></ng-icon>
+      Add Review
+    </button>
+    <app-review-list [selectedCategory]="this.selectedCategory" />
+</div>
